@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IL SIGNORE DI CRUNCHY2</title>
+  <link rel="shortcut icon" type="image/x-icon" href="Planta.png" />
+  <link rel="stylesheet" href="estilos.css" />
+</head>
+<body>
+  <!-- LOADER ANIMADO -->
+  <div id="loader" style="
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;">
+    <video id="introVideo" src="intro-logo.mp4" autoplay muted playsinline style="width: 200px; height: auto;"></video>
+  </div>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="logo">
+      <img src="ISDP.png" alt="Logo de la página" style="height: 150px;">
+    </div>
+    <nav class="menu">
+      <button onclick="location.href='index.html'">Inicio</button>
+      <button onclick="location.href='productos.html'">Nuestros productos</button>
+    </nav>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-texto">
+      <h1><img src="BT.jpg" alt="IL SIGNORE DEI CRUNCHY2" style="height: 600px;"></h1>
+      <p>Distribuimos plantas y productos naturales</p>
+      <a href="pagina2.html" class="boton">Ver más</a>
+    </div>
+  </section>
+
+  <!-- CARRUSEL DE IMÁGENES -->
+  <section class="carrusel">
+    <div class="slide activo" style="background-image: url('BT.jpg');">
+      <div class="overlay">
+        <h2>Bienvenido a IL SIGNORE DEI CRUNCHY2</h2>
+        <p>Distribuimos productos recionados a las plantas y Botanas Saludables libres de sellos</p>
+        <a href="productos.html" class="boton">Ver más</a>
+      </div>
+    </div>
+    <div class="slide" style="background-image: url('F2.jpg');">
+      <div class="overlay">
+        <h2>Conoce nuestros productos plantiles</h2>
+        <p>Todo con amor</p>
+        <a href="productos.html" class="boton">Explorar</a>
+      </div>
+    </div>
+    <div class="slide" style="background-image: url('C2.jpg');">
+      <div class="overlay">
+        <h2>Snacks sin sellos</h2>
+        <p>Papas y botanas saludables libres de sellos</p>
+        <a href="productos.html" class="boton">Descúbrelos</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <section class="contenido">
+    <img src="B1.jpg" width="350" height="400" alt="Trabajo">
+    <h2>
+      Ofrecemos la distribución de plantas vivas y productos relacionados como macetas, tierra, sustratos y más. También contamos con papas y botanas saludables sin sellos.
+    </h2>
+    <img src="BT.jpg" alt="Botanas">
+    <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut risus ac risus placerat vehicula...</h2>
+    <h2>Integer laoreet turpis non mauris vestibulum, nec dignissim arcu malesuada...</h2>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>Síguenos en redes:</p>
+    <div class="redes">
+      <a href="#">Instagram</a> | <a href="#">Facebook</a> | <a href="#">TikTok</a>
+    </div>
+    <p>© 2025 IL SIGNORE DEI CRUNCHY2. Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- JS DEL CARRUSEL Y LOADER -->
+  <script>
+    // Carrusel
+    const slides = document.querySelectorAll('.slide');
+    let currentIndex = 0;
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('activo', i === index);
+      });
+    }
+
+    setInterval(() => {
+      currentIndex = (currentIndex + 1) % slides.length;
+      showSlide(currentIndex);
+    }, 5000);
+
+    // Loader con video de entrada
+    const loader = document.getElementById('loader');
+    const introVideo = document.getElementById('introVideo');
+
+    introVideo.onended = () => {
+      loader.style.display = 'none';
+    };
+
+    // Función para mostrar loader en navegación
+    function cargarConLoader(url) {
+      loader.style.display = 'flex';
+      setTimeout(() => {
+        window.location.href = url;
+      }, 1200);
+    }
+
+    // Enlaces con clase .boton
+    document.querySelectorAll('.boton').forEach(boton => {
+      const link = boton.getAttribute('href');
+      boton.setAttribute('onclick', `event.preventDefault(); cargarConLoader('${link}')`);
+    });
+
+    // Botones del navbar
+    document.querySelectorAll('nav button').forEach(btn => {
+      const link = btn.getAttribute('onclick').match(/'([^']+)'/)[1];
+      btn.setAttribute('onclick', `cargarConLoader('${link}')`);
+    });
+  </script>
+</body>
+</html>

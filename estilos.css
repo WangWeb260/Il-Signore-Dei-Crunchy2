@@ -1,0 +1,99 @@
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom right, #2e8b57cc, #ffa500cc),
+              url('fondo.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: white;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.logo img {
+  height: 50px;
+}
+.menu button {
+  margin: 0 10px;
+  padding: 10px 20px;
+  background-color: #FFA500;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.hero {
+  padding: 100px 20px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.hero h1 {
+  font-size: 48px;
+  color: #FFA500;
+}
+.boton {
+  display: inline-block;
+  margin-top: 20px;
+  background-color: #2E8B57;
+  padding: 12px 24px;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.carrusel {
+  position: relative;
+  height: 400px;
+  overflow: hidden;
+}
+.slide {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.slide.activo {
+  opacity: 1;
+}
+.overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.contenido {
+  padding: 40px 20px;
+  text-align: center;
+}
+.contenido img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+.contenido h2 {
+  margin-bottom: 20px;
+}
+
+footer {
+  background-color: rgba(0,0,0,0.7);
+  padding: 20px;
+  text-align: center;
+}
+footer .redes a {
+  color: #FFA500;
+  margin: 0 10px;
+  text-decoration: none;
+}
